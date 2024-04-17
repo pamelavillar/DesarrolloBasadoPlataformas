@@ -60,6 +60,7 @@
                 </div>
 
                 <div class="field input">
+                    <label for="ingles">Nivel de ingles:</label>
                     <label for="basico" class="nivel-ingles">Básico</label>
                     <input type="radio" id="basico" name="nivel_ingles" value="basico" class="nivel-ingles">
                     
