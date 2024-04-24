@@ -5,6 +5,8 @@
     box-sizing: border-box;
     font-family: 'Poppins',sans-serif;
 }
+
+
 body{
     background: #e4e9f7;
 }
@@ -145,11 +147,26 @@ main{
     }
 }
 .message{
-    text-align: center;
+    text-align: left;
     background: #f9eded;
     padding: 15px 0px;
-    border:1px solid #699053;
-    border-radius: 5px;
     margin-bottom: 10px;
     color: red;
+}
+
+
+span#name-error {
+    color: red;
+    font-size: 12px;
+}
+
+.error{
+    color: red;
+    font-size: 12px;
+}
+
+.expBox {
+    background-color: #e9e3e3;
+    padding: 10px;
+    margin: 10px 0;
 }

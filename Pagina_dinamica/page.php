@@ -1,3 +1,9 @@
+<?php
+// Obtener los valores de programacion y habilidades de la URL y convertirlos de nuevo en arrays
+$programacion = isset($_GET["programacion"]) ? explode(",", $_GET["programacion"]) : [];
+$habilidades = isset($_GET["habilidades"]) ? explode(",", $_GET["habilidades"]) : [];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,22 +69,16 @@
                 <h4>APTITUDES</h4>
                 <hr>
                 <ul class = "aptitudes">
-                    <li class = "text"> Adobe Photoshop - Illustrator - Premiere</li>
-                    <li class = "text"> Microsoft Office </li>    
-                    <li class = "text"> Gestión del tiempo</li>
-                    <li class = "text"> Trabajo en equipo</li>
-                    <li class = "text"> Optimización de redes sociales</li>
+                    <li class = "text"><?php echo $_GET['aptitudes'];?></li>
+                    
                 </ul>
 
                 <h4>HABILIDADES</h4>
                 <hr>
                 <ul class = "habilidades">
                     <?php
-                    if (isset($_GET['habilidades'])) {
-                        $habilidades = $_GET['habilidades'];
-                        foreach ($habilidades as $seleccion) {
+                    foreach ($habilidades as $seleccion) {
                         echo "<li class='text'>$seleccion</li>";
-                        }
                     }
                     ?>
                 </ul>
@@ -87,12 +87,9 @@
                 <hr>
                 <ul class = "intereses">
                     <?php
-                    if (isset($_GET['programacion'])) {
-                        $programacion = $_GET['programacion'];
                         foreach ($programacion as $seleccion) {
-                        echo "<li class='text'>$seleccion</li>";
+                            echo "<li class='text'>$seleccion</li>";
                         }
-                    }
                     ?>
                 </ul>
             </div>
@@ -109,35 +106,35 @@
                 <hr>
                 <div class="expeLaboral">
                     <div class = "expBox">
-                        <h5>Trabajador Social</h5>
+                        <h5><?php echo $_GET['puesto1'];?></h5>
                         <div class = "fecha_ubicacion">
-                            <span class="ciudad">Mexico DF</span>, | <span class="periodo">2020-2022</span>
+                            <span class="ciudad"><?php echo $_GET['ciudad1'];?></span>, | <span class="periodo"><?php echo $_GET['periodo1'];?></span>
                         </div>
                         <ul class="funciones">
-                            <li class = "text">Participé activamente en la evaluación de las necesidades individuales, familiares y comunitarias de nuestros clientes.</li>
+                            <li class = "text"><?php echo $_GET['funciones1'];?></li>
                             <li class = "text">Trabajé en estrecha colaboración con otros profesionales y organizaciones para coordinar la provisión de servicios integrales que abordaran las necesidades de nuestros clientes.</li>
                             <li class = "text"> Participé en actividades de educación y sensibilización comunitaria para aumentar la conciencia sobre temas sociales importantes. </li>
                         </ul>
                     </div>
 
                     <div class = "expBox">
-                        <h5>Trabajador Social</h5>
+                        <h5><?php echo $_GET['puesto2'];?></h5>
                         <div class = "fecha_ubicacion">
-                            <span class="ciudad">Mexico DF</span>, | <span class="periodo">2020-2022</span>
+                            <span class="ciudad"><?php echo $_GET['ciudad2'];?></span>, | <span class="periodo"><?php echo $_GET['periodo2'];?></span>
                         </div>
                         <ul class="funciones">
-                            <li class = "text">Participé activamente en la evaluación de las necesidades individuales, familiares y comunitarias de nuestros clientes.</li>
+                            <li class = "text"><?php echo $_GET['funciones2'];?></li>
                             <li class = "text">Trabajé en estrecha colaboración con otros profesionales y organizaciones para coordinar la provisión de servicios integrales que abordaran las necesidades de nuestros clientes.</li>
                         </ul>
                     </div>
 
                     <div class = "expBox">
-                        <h5>Trabajador Social</h5>
+                        <h5><?php echo $_GET['puesto3'];?></h5>
                         <div class = "fecha_ubicacion">
-                            <span class="ciudad">Mexico DF</span>, | <span class="periodo">2020-2022</span>
+                            <span class="ciudad"><?php echo $_GET['ciudad3'];?></span>, | <span class="periodo"><?php echo $_GET['periodo3'];?></span>
                         </div>
                         <ul class="funciones">
-                            <li class = "text">Impartí clases magistrales y prácticas educativas para promover el aprendizaje activo de los estudiantes.</li>
+                            <li class = "text"><?php echo $_GET['funciones3'];?></li>
                             <li class = "text">Diseñé planes de estudio y evaluaciones adaptadas a las necesidades de aprendizaje de cada grupo.</li>
                             <li class = "text">Fomenté la participación y el trabajo en equipo entre los estudiantes para mejorar su comprensión y retención de los contenidos.</li>
                         </ul>
@@ -149,16 +146,16 @@
                 <hr>
                 <div class="formacion">
                     <div class = "forBox">
-                        <h5>Grado de Trabajo Social</h5>
+                        <h5><?php echo $_GET['formacion1'];?></h5>
                         <div class = "fecha_ubicacion">
-                            <span class="ciudad">Esma,Madrid</span>, | <span class="periodo">2012-2015</span>
+                            <span class="ciudad"><?php echo $_GET['ciudadA'];?></span>, | <span class="periodo"><?php echo $_GET['periodoA'];?></span>
                         </div>
                     </div>
 
                     <div class = "forBox">
-                        <h5>Licenciatura Profesional</h5>
+                        <h5><?php echo $_GET['formacion2'];?></h5>
                         <div class = "fecha_ubicacion">
-                            <span class="ciudad">Universidad de la Frontera, Mexico DF</span>, | <span class="periodo">2011-2012</span>
+                            <span class="ciudad"><?php echo $_GET['ciudadB'];?></span>, | <span class="periodo"><?php echo $_GET['periodoB'];?></span>
                         </div>
                     </div>
                 </div>
