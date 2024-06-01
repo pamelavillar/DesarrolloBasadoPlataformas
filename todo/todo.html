@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>DBP</title>
+
+    
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+
+        const completeAll = () => {
+          document.querySelectorAll('#tasks li').forEach(li => {
+            const checkbox = li.querySelector('input[type="checkbox"]');
+            const texto = li.querySelector('span');
+            checkbox.checked = true;
+            texto.style.textDecoration = 'line-through';
+          });
+        };
+
+        document.querySelector('#complete-all').onclick = completeAll;
+
+        document.querySelector('#new-task').onsubmit = () => {
+          const cb = document.createElement("INPUT"); 
+          cb.setAttribute("type", "checkbox"); 
+          
+          const li = document.createElement('li'); 
+          const texto = document.createElement('span'); 
+          texto.textContent = document.querySelector('#task').value; 
+
+          cb.onchange = () => { 
+            if (cb.checked) {
+              texto.style.textDecoration = 'line-through'; 
+            } else {
+              texto.style.textDecoration = 'none'; 
+            }
+          };
+
+          const deleteButton = document.createElement('button'); 
+          deleteButton.innerHTML = 'Borrar'; 
+          deleteButton.onclick = () => { 
+            li.remove(); 
+          };
+
+          li.appendChild(cb); 
+          li.appendChild(texto); 
+          li.appendChild(deleteButton); 
+
+          document.querySelector('#tasks').append(li);
+
+          document.querySelector('#task').value = ''; 
+
+          return false; 
+        };
+      });
+    </script>
+  </head>
+  <body>
+    <p>Computer Science</p>
+    <h1>Tasks</h1>
+    
+    <form id="new-task">
+      <input id="task" autocomplete="off" autofocus placeholder="New Task" type="text">
+      <input type="submit">
+    </form>
+
+    <button id="complete-all">Complete All</button> 
+    <ol id="tasks">
+    </ol>
+  </body>
+</html>
+
+
+
+
+
+<style>
+  body {
+      font-family: 'Inter', sans-serif;
+      background-color: rgb(252, 252, 252);
+      margin: 20px;
+      justify-content: center;
+      align-items: center;
+  }
+
+  form {
+      display: flex;
+      margin-bottom: 10px;
+  }
+
+  INPUT {
+      padding: 8px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      
+      border-radius: 4px;
+  }
+
+  button {
+      padding: 8px 16px;
+      margin: 10px;
+      font-size: 14px;
+      background-color: #ff3b3b;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+  }
+
+  li {
+      background-color: rgb(252, 252, 252);
+      margin: 0 0;
+      font-size: 18px;
+      padding: 5px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+  }
+
+  input[type="checkbox"] {
+      margin-right: 8px;
+  }
+
+
+</style>
